@@ -43,7 +43,7 @@ const mailNovedades = `mailto:${sitio.email}?subject=${encodeURIComponent("Quier
         <div class="flor">
           {hero.foto
             ? <img class="foto" src={hero.foto} alt={sitio.nombre_completo}>
-            : <div class="ph"><img src="/img/logo.png" alt="">Acá va la foto de Jacqui</div>}
+            : <div class="ph"><img src="/img/logo.png" alt="">{import.meta.env.DEV && "Acá va la foto de Jacqui"}</div>}
         </div>
         <div class="sello"><Icono nombre="corazon" /> {hero.sello}</div>
       </div>
@@ -83,12 +83,12 @@ const mailNovedades = `mailto:${sitio.email}?subject=${encodeURIComponent("Quier
         <p class="lead">{servicios.bajada}</p>
       </div>
       <div class="serv">
-        {servicios.items.map((s) => (
+        {servicios.items.map((s, n) => (
           <article class="tarjeta">
             <span class="etiqueta">{s.etiqueta}</span>
             <h3>{s.titulo}</h3>
             <p>{s.texto}</p>
-            <a class="btn" href={link(s.mensaje)} target="_blank" rel="noopener" aria-label={`${s.boton}: ${s.titulo}`}>{s.boton}</a>
+            <a class={n === 0 ? "btn" : "btn ghost"} href={link(s.mensaje)} target="_blank" rel="noopener" aria-label={`${s.boton}: ${s.titulo}`}>{s.boton}</a>
           </article>
         ))}
       </div>
@@ -101,7 +101,7 @@ const mailNovedades = `mailto:${sitio.email}?subject=${encodeURIComponent("Quier
       <div class="flor">
         {sobre_mi.foto
           ? <img class="foto" src={sobre_mi.foto} alt={sitio.nombre_completo}>
-          : <div class="ph"><img src="/img/logo.png" alt="">Segunda foto de Jacqui</div>}
+          : <div class="ph"><img src="/img/logo.png" alt="">{import.meta.env.DEV && "Segunda foto de Jacqui"}</div>}
       </div>
       <div>
         <p class="eyebrow">{sobre_mi.etiqueta}</p>
@@ -158,7 +158,8 @@ const mailNovedades = `mailto:${sitio.email}?subject=${encodeURIComponent("Quier
           </form>
         ) : (
           <div class="alta-mail">
-            <a class="btn" href={mailNovedades}>{novedades.boton}</a>
+            <a class="btn" href={mailNovedades}>{novedades.boton_mail}</a>
+            <p>{novedades.nota_mail}</p>
             <p><a href="/privacidad">Política de privacidad</a></p>
           </div>
         )}
@@ -172,7 +173,7 @@ const mailNovedades = `mailto:${sitio.email}?subject=${encodeURIComponent("Quier
       <h2>{contacto.titulo}</h2>
       <p class="lead">{contacto.bajada}</p>
       <div class="acciones">
-        <a class="btn" href={link(sitio.mensaje_whatsapp)} target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg> WhatsApp</a>
+        <a class="btn" href={link(sitio.mensaje_whatsapp)} target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg> {hero.boton_principal}</a>
         <a class="btn ghost" href={sitio.instagram} target="_blank" rel="noopener">Instagram @crianza.con.respeto</a>
         <a class="btn ghost" href={`mailto:${sitio.email}`}>Email</a>
       </div>

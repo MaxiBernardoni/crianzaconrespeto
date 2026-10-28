@@ -66,6 +66,29 @@ La re-auditoría detectó una regresión propia: la etiqueta "Grupal" de la tarj
 
 Siguen abiertos: fotos reales y matrícula (revisar de nuevo portada y pie al tenerlas), dominio, cuenta de newsletter y revisión legal.
 
-## 6. Cómo repetir la auditoría
+## 6. Segunda auditoría (28/10/2026)
+
+Alcance: home en 1280 y 375 px, `/privacidad` y `/regalo` (1280 px). Sondas `core`, `heuristics`, `perception`, `ltr`, `focus` y `routes` más lectura de textos. No se corrieron `rtl` ni `parity` (sitio en un solo idioma). Quedó fuera: foco con teclado en controles que no sean el botón "Menú", enlaces externos de prensa y contraste sobre degradados.
+
+**Lo que funcionaba (se mantiene):** contraste 127/127 en la home, 47/47 en `/privacidad`; 0 áreas táctiles < 24 px; foco 6,33:1 con anillo de 3 px; un `h1` sin saltos; enlace "Saltar al contenido"; `lang="es-AR"`; sin scroll horizontal en 375 px; 7/7 rutas internas en 200.
+
+| # | Gravedad | Hallazgo | Estado |
+|---|---|---|---|
+| 01 | Crítico | Los carteles "Acá va la foto de Jacqui" / "Segunda foto de Jacqui" se veían como texto en la página | **Resuelto**: solo se muestran en desarrollo (`import.meta.env.DEV`); en `dist/` hay 0 apariciones. Falta subir las fotos reales |
+| 02 | Mayor | Matrícula vacía: en producción el pie no la muestra | **Abierto**: solo la puede dar Jacqui (`sitio.matricula`) |
+| 03 | Mayor | 3 botones principales y 4 nombres distintos para el mismo link de WhatsApp | **Resuelto**: el botón del encabezado pasó a contorno, los de servicios (salvo el destacado) también; el flotante y el del encabezado tienen `aria-label="Escribime por WhatsApp"` (contiene el texto visible, WCAG 2.5.3) y el botón de contacto dice igual que el de la portada. La sonda ahora ve 2 principales (portada y flotante) y un solo nombre para el link |
+| 04 | Mayor | "Quiero recibirlos" abría el correo sin avisar | **Resuelto a medias**: sin servicio conectado el botón dice "Suscribirme por email" y debajo aclara que se abre el correo con el pedido escrito (campos nuevos `boton_mail` y `nota_mail`, editables en Pages CMS). Falta conectar el servicio (`novedades.endpoint`) |
+| 05 | Accesibilidad (1.3.1) | `/regalo` sin `<main>` ni `h1` en el estado inicial | **Resuelto**: `<main>` y un `h1` solo para lectores de pantalla ("Un regalo para vos"). Se recorrieron las 4 etapas: siempre hay un solo `h1` y un `main` |
+| 06 | Nota | Sin `canonical`, `og:url` ni datos estructurados | **Resuelto a medias**: se agregó JSON-LD `Person` en la home con datos de `sitio.json`. `canonical`/`og:url`/`og:image` absoluta siguen esperando `sitio.url` (dominio) |
+| 07 | Nota | La home invita a "Contame cómo estás" y la política pide no mandar datos de salud | **Resuelto**: la bajada del contacto pide unas líneas sobre qué preocupa y deja los detalles para la consulta. Texto de Jacqui: necesita su OK |
+| 08 | Nota | "Mamás de niños de 2 a 6" sin unidad | **Resuelto**: "de 2 a 6 años" en la home y en el servicio de grupos |
+| 09 | Nota | Puntuación de textos de ayuda "inconsistente" (20 de 26 con punto) | **Descartado**: de los 14 textos sin punto que revisé, todos son rótulos, listas o etiquetas; las frases completas sí llevan punto |
+| 10 | Nota | 26 valores de espaciado y 9 radios | **Sin cambios a propósito**: los radios son las esquinas de hoja del diseño y reordenar todo el espaciado arriesga una regresión visual sin ganancia para quien visita |
+
+Pistas de las sondas que se descartaron: títulos "huérfanos" (la etiqueta cursiva forma parte del título), "servicios con espaciado uniforme" (es el destacado más la grilla 2×2) y "11 opciones de navegación" (cuenta también el menú móvil).
+
+Verificación posterior: 0 fallas de contraste, 0 áreas táctiles < 24 px, sin scroll horizontal en 375 px, `npm run build` sin errores.
+
+## 7. Cómo repetir la auditoría
 
 Las sondas viven en el plugin `ux-ui-audit` (no están en el proyecto). Para repetirla: servir el sitio con `npm run dev`, copiar temporalmente las sondas a `public/_audit/`, cargarlas con `fetch` desde la página y evaluarlas, y **borrar `public/_audit/` al terminar**. Para el foco: apretar Tab de verdad antes de correr `probe-focus.js` (enfocar por código da falsos negativos).

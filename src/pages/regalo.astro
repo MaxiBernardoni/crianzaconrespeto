@@ -30,11 +30,12 @@ const { ayuda } = regalo;
   </clipPath>
 </svg>
 
-<div class="escena" data-etapa="cerrado">
+<main class="escena" data-etapa="cerrado">
   <span class="fl f1" aria-hidden="true"></span><span class="fl f2" aria-hidden="true"></span><span class="fl f3" aria-hidden="true"></span>
   <div class="chispas" aria-hidden="true"></div>
 
   <div class="juego">
+    <h1 class="solo-lectores">{regalo.titulo}</h1>
     <p class="texto" aria-live="polite">{regalo.pista}</p>
 
     <button class="caja" type="button" aria-label={regalo.pista}>
@@ -86,7 +87,7 @@ const { ayuda } = regalo;
   </div>
 
   <a class="ir-directo" href="/">{regalo.saltar}</a>
-</div>
+</main>
 
 <script type="application/json" id="datos" set:html={JSON.stringify(datos)}></script>
 <script>

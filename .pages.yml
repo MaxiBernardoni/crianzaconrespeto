@@ -77,7 +77,9 @@ content:
           - { name: titulo, label: Título, type: string }
           - { name: bajada, label: Bajada, type: text }
           - { name: consentimiento, label: Texto de aceptación, type: text }
-          - { name: boton, label: Texto del botón, type: string }
+          - { name: boton, label: Texto del botón del formulario (cuando el servicio de newsletter está conectado), type: string }
+          - { name: boton_mail, label: Texto del botón mientras no hay servicio (abre un email ya escrito), type: string }
+          - { name: nota_mail, label: Aclaración debajo de ese botón, type: text }
           - { name: endpoint, label: "Dirección de envío del servicio de newsletter (dejar vacía hasta conectarlo: mientras tanto el botón abre un email ya escrito)", type: string }
       - name: contacto
         label: Contacto

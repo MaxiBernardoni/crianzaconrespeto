@@ -17,7 +17,7 @@
     "chips": [
       "Embarazadas y puérperas",
       "Mamás de bebés de 0 a 1 año",
-      "Mamás de niños de 2 a 6",
+      "Mamás de niños de 2 a 6 años",
       "Papás que quieren estar presentes",
       "Parejas",
       "Profesionales de la salud",
@@ -45,12 +45,14 @@
     "bajada": "Un mail cada tanto con una idea, una herramienta y fechas de los próximos encuentros. Sin spam.",
     "consentimiento": "Acepto recibir emails de Crianza con Respeto y la política de privacidad. Puedo darme de baja cuando quiera.",
     "boton": "Quiero recibirlos",
+    "boton_mail": "Suscribirme por email",
+    "nota_mail": "Se abre tu correo con el pedido ya escrito: solo tenés que enviarlo.",
     "endpoint": ""
   },
   "contacto": {
     "etiqueta": "Contacto",
     "titulo": "Contame cómo estás y vemos cómo acompañarte",
-    "bajada": "Escribime y te respondo a la brevedad. Sin compromiso.",
+    "bajada": "Escribime y te respondo a la brevedad. Sin compromiso. Alcanza con unas líneas sobre qué te preocupa: los detalles los charlamos en la consulta.",
     "pie": "Atención online · De Argentina al mundo"
   }
 }

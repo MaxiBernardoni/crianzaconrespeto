@@ -4,7 +4,7 @@
   "bajada": "Todo es online, así que podés participar desde cualquier lugar.",
   "nota": "Los valores se informan por WhatsApp.",
   "items": [
-    { "etiqueta": "Grupal", "titulo": "Grupos de crianza", "texto": "Encuentros mensuales con otras mamás y un grupo de WhatsApp para acompañarse entre encuentros. Para embarazo y puerperio, bebés de 0 a 1 y niños de 2 a 6.", "boton": "Quiero info", "mensaje": "Hola Jacqui, quiero info de los grupos de crianza" },
+    { "etiqueta": "Grupal", "titulo": "Grupos de crianza", "texto": "Encuentros mensuales con otras mamás y un grupo de WhatsApp para acompañarse entre encuentros. Para embarazo y puerperio, bebés de 0 a 1 año y niños de 2 a 6 años.", "boton": "Quiero info", "mensaje": "Hola Jacqui, quiero info de los grupos de crianza" },
     { "etiqueta": "Individual", "titulo": "Atención y orientación a padres", "texto": "Espacio personal, para vos o para tu familia, con mirada sistémica. Online, para Argentina y el mundo.", "boton": "Pedir una entrevista", "mensaje": "Hola Jacqui, quiero consultar por atención individual" },
     { "etiqueta": "A tu ritmo", "titulo": "Charlas pregrabadas", "texto": "“Crianza con Respeto – Fundamentos” para verla cuando puedas y las veces que quieras. Pronto, también la charla de preparto.", "boton": "Quiero info", "mensaje": "Hola Jacqui, quiero info de las charlas pregrabadas" },
     { "etiqueta": "Profesionales", "titulo": "Grupo de trabajo y supervisión", "texto": "Encuentros mensuales para colegas que acompañan familias, con espacio para pensar casos y herramientas.", "boton": "Quiero info", "mensaje": "Hola Jacqui, quiero info del grupo de supervisión" },

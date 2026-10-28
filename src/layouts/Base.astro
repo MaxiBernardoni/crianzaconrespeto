@@ -20,6 +20,18 @@ const base = sitio.url.replace(/\/+$/, "");
 const canonical = base ? base + ruta : null;
 const imagen = `${base}/img/og.png`;
 const linkWa = wa(sitio.whatsapp, sitio.mensaje_whatsapp);
+
+// Dato estructurado para buscadores (solo en la home); usa únicamente datos de sitio.json.
+const personaJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: sitio.nombre_completo.replace(/^Lic\.\s*/, ""),
+  jobTitle: sitio.titulo_profesional,
+  email: sitio.email,
+  ...(base && { url: base }),
+  worksFor: { "@type": "Organization", name: sitio.nombre },
+  sameAs: [sitio.instagram, sitio.threads, sitio.youtube],
+};
 ---
 <!doctype html>
 <html lang="es-AR">
@@ -42,6 +54,7 @@ const linkWa = wa(sitio.whatsapp, sitio.mensaje_whatsapp);
   <meta property="og:image:alt" content={`${sitio.nombre}, ${sitio.firma}`}>
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/img/logo.png">
+  {ruta === "/" && <script type="application/ld+json" set:html={JSON.stringify(personaJsonLd)}></script>}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,1;1,9..144,300..600,100,1&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -81,7 +94,7 @@ const linkWa = wa(sitio.whatsapp, sitio.mensaje_whatsapp);
         <li><a href="/#servicios">Servicios</a></li>
         <li><a href="/#sobre-mi">Sobre mí</a></li>
         <li><a href="/#prensa">Entrevistas</a></li>
-        <li><a class="btn" href={linkWa} target="_blank" rel="noopener">Escribime</a></li>
+        <li><a class="btn ghost" href={linkWa} target="_blank" rel="noopener" aria-label="Escribime por WhatsApp">Escribime</a></li>
       </ul>
       <details class="menu">
         <summary>Menú</summary>
@@ -134,7 +147,7 @@ const linkWa = wa(sitio.whatsapp, sitio.mensaje_whatsapp);
   </div>
 </footer>
 
-<a class="wa" href={linkWa} target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+<a class="wa" href={linkWa} target="_blank" rel="noopener" aria-label="Escribime por WhatsApp">
   <svg aria-hidden="true"><use href="#wa"/></svg><span>Escribime</span>
 </a>
 
