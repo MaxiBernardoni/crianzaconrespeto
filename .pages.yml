@@ -1,0 +1,163 @@
+# Configuración de Pages CMS (https://pagescms.org): el panel con el que Jacqui edita el sitio.
+# Cada entrada edita un archivo JSON de src/content; los cambios se guardan como commits en GitHub.
+media:
+  input: public/img
+  output: /img
+
+content:
+  - name: sitio
+    label: Datos generales y contacto
+    type: file
+    path: src/content/sitio.json
+    format: json
+    fields:
+      - { name: nombre, label: Nombre de la marca, type: string }
+      - { name: firma, label: Firma corta (debajo del logo), type: string }
+      - { name: nombre_completo, label: Nombre completo, type: string }
+      - { name: titulo_profesional, label: Título profesional, type: string }
+      - { name: descripcion_seo, label: Descripción para Google (1 o 2 frases), type: text }
+      - { name: url, label: "Dirección completa del sitio (ej. https://crianzaconrespeto.com.ar, sin barra final). Se carga cuando haya dominio: sin esto no se ve la vista previa al compartir el link", type: string }
+      - { name: whatsapp, label: "WhatsApp (solo números, con código de país, ej. 5491151105497)", type: string }
+      - { name: mensaje_whatsapp, label: Mensaje que aparece escrito al tocar WhatsApp, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: instagram, label: Link de Instagram, type: string }
+      - { name: threads, label: Link de Threads, type: string }
+      - { name: youtube, label: Link de YouTube, type: string }
+      - { name: matricula, label: "Matrícula profesional (si se deja vacía, no se muestra)", type: string }
+      - { name: aviso_alcance, label: Aviso de alcance (pie de página), type: text }
+      - { name: aviso_crisis, label: Aviso de crisis (pie de página), type: text }
+
+  - name: inicio
+    label: Página de inicio
+    type: file
+    path: src/content/inicio.json
+    format: json
+    fields:
+      - name: hero
+        label: Portada
+        type: object
+        fields:
+          - { name: etiqueta, label: Texto chico sobre el título, type: string }
+          - { name: titulo, label: Título (primera parte), type: string }
+          - { name: titulo_destacado, label: Título (parte destacada en cursiva), type: string }
+          - { name: bajada, label: Bajada, type: text }
+          - { name: boton_principal, label: Texto del botón de WhatsApp, type: string }
+          - { name: boton_secundario, label: Texto del botón secundario, type: string }
+          - { name: puntos, label: Puntos debajo de los botones, type: string, list: true }
+          - { name: sello, label: Sello sobre la foto, type: string }
+          - { name: foto, label: Foto (si se deja vacía se muestra un recuadro), type: image }
+      - name: para_quien
+        label: "Para quién es"
+        type: object
+        fields:
+          - { name: etiqueta, label: Texto chico, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: bajada, label: Bajada, type: text }
+          - { name: chips, label: Personas a quienes acompaña, type: string, list: true }
+      - name: sobre_mi
+        label: Sobre mí
+        type: object
+        fields:
+          - { name: etiqueta, label: Texto chico, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto (dejá una línea en blanco entre párrafos), type: text }
+          - { name: formacion, label: Formación y trayectoria, type: string, list: true }
+          - { name: foto, label: Foto, type: image }
+      - name: frase
+        label: Frase destacada
+        type: object
+        fields:
+          - { name: texto, label: Frase, type: string }
+          - { name: pie, label: Línea debajo de la frase, type: string }
+      - name: novedades
+        label: Formulario de novedades
+        type: object
+        fields:
+          - { name: etiqueta, label: Texto chico, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: bajada, label: Bajada, type: text }
+          - { name: consentimiento, label: Texto de aceptación, type: text }
+          - { name: boton, label: Texto del botón, type: string }
+          - { name: endpoint, label: "Dirección de envío del servicio de newsletter (dejar vacía hasta conectarlo: mientras tanto el botón abre un email ya escrito)", type: string }
+      - name: contacto
+        label: Contacto
+        type: object
+        fields:
+          - { name: etiqueta, label: Texto chico, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: bajada, label: Bajada, type: text }
+          - { name: pie, label: Línea final, type: string }
+
+  - name: trabajamos
+    label: Qué trabajamos
+    type: file
+    path: src/content/trabajamos.json
+    format: json
+    fields:
+      - { name: etiqueta, label: Texto chico, type: string }
+      - { name: titulo, label: Título, type: string }
+      - name: items
+        label: Temas
+        type: object
+        list: true
+        fields:
+          - { name: icono, label: Emoji, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Descripción, type: text }
+
+  - name: servicios
+    label: Servicios
+    type: file
+    path: src/content/servicios.json
+    format: json
+    fields:
+      - { name: etiqueta, label: Texto chico, type: string }
+      - { name: titulo, label: Título, type: string }
+      - { name: bajada, label: Bajada, type: text }
+      - { name: nota, label: Nota al pie de la sección, type: string }
+      - name: items
+        label: Servicios
+        type: object
+        list: true
+        fields:
+          - { name: etiqueta, label: Etiqueta (ej. Grupal), type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Descripción, type: text }
+          - { name: boton, label: Texto del botón, type: string }
+          - { name: mensaje, label: Mensaje de WhatsApp que se escribe al tocar el botón, type: string }
+
+  - name: prensa
+    label: Entrevistas y medios
+    type: file
+    path: src/content/prensa.json
+    format: json
+    fields:
+      - { name: etiqueta, label: Texto chico, type: string }
+      - { name: titulo, label: Título, type: string }
+      - { name: bajada, label: Bajada, type: text }
+      - name: items
+        label: Entrevistas
+        type: object
+        list: true
+        fields:
+          - { name: medio, label: Medio, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: enlace_texto, label: Texto del link, type: string }
+          - { name: url, label: Link, type: string }
+
+  - name: privacidad
+    label: Política de privacidad
+    type: file
+    path: src/content/privacidad.json
+    format: json
+    fields:
+      - { name: titulo, label: Título, type: string }
+      - { name: actualizado, label: Fecha de última actualización (ej. 27 de octubre de 2026), type: string }
+      - { name: intro, label: Introducción, type: text }
+      - name: secciones
+        label: Secciones
+        type: object
+        list: true
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto (dejá una línea en blanco entre párrafos), type: text }

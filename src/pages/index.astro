@@ -1,0 +1,182 @@
+---
+import Base from "../layouts/Base.astro";
+import sitio from "../content/sitio.json";
+import inicio from "../content/inicio.json";
+import trabajamos from "../content/trabajamos.json";
+import servicios from "../content/servicios.json";
+import prensa from "../content/prensa.json";
+import { wa } from "../lib/wa";
+
+const link = (mensaje: string) => wa(sitio.whatsapp, mensaje);
+const { hero, para_quien, sobre_mi, frase, novedades, contacto } = inicio;
+const parrafos = sobre_mi.texto.split(/\n\s*\n/);
+
+// `novedades.endpoint` es la dirección de envío del servicio de newsletter (Brevo, MailerLite, etc.); si el servicio
+// pide otros nombres de campo, cambiar los `name` del formulario.
+// Sin servicio de newsletter conectado, el botón abre un mail ya escrito (con el consentimiento) en vez de simular un alta.
+const mailNovedades = `mailto:${sitio.email}?subject=${encodeURIComponent("Quiero recibir las novedades")}&body=${encodeURIComponent(`Hola Jacqui, quiero recibir tus novedades por email.\n\n${novedades.consentimiento}`)}`;
+---
+<Base>
+<main id="inicio">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">{hero.etiqueta}</p>
+        <h1>{hero.titulo} <span class="h1-2">{hero.titulo_destacado}</span></h1>
+        <p class="lead">{hero.bajada}</p>
+        <div class="acciones">
+          <a class="btn" href={link(sitio.mensaje_whatsapp)} target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#wa"/></svg> {hero.boton_principal}
+          </a>
+          <a class="btn ghost" href="#servicios">{hero.boton_secundario}</a>
+        </div>
+        <ul class="confianza">
+          {hero.puntos.map((p) => <li>{p}</li>)}
+        </ul>
+      </div>
+      <div class="retrato">
+        <span class="petalo p1"></span><span class="petalo p2"></span>
+        <svg class="rama a" aria-hidden="true"><use href="#rama"/></svg>
+        <svg class="rama b" aria-hidden="true"><use href="#rama"/></svg>
+        <div class="flor">
+          {hero.foto
+            ? <img class="foto" src={hero.foto} alt={sitio.nombre_completo}>
+            : <div class="ph"><img src="/img/logo.png" alt="">Acá va la foto de Jacqui</div>}
+        </div>
+        <div class="sello">{hero.sello}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hoja">
+    <div class="wrap center">
+      <p class="eyebrow">{para_quien.etiqueta}</p>
+      <h2>{para_quien.titulo}</h2>
+      <p class="lead">{para_quien.bajada}</p>
+      <div class="chips">
+        {para_quien.chips.map((c) => <span class="chip">{c}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="trabajamos hoja" id="trabajamos">
+    <div class="wrap dos-col">
+      <div class="cabeza">
+        <p class="eyebrow">{trabajamos.etiqueta}</p>
+        <h2>{trabajamos.titulo}</h2>
+      </div>
+      <ul class="lista">
+        {trabajamos.items.map((t) => (
+          <li><span class="ico" aria-hidden="true">{t.icono}</span><div><h3>{t.titulo}</h3><p>{t.texto}</p></div></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="servicios hoja" id="servicios">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">{servicios.etiqueta}</p>
+        <h2>{servicios.titulo}</h2>
+        <p class="lead">{servicios.bajada}</p>
+      </div>
+      <div class="serv">
+        {servicios.items.map((s) => (
+          <article class="tarjeta">
+            <span class="etiqueta">{s.etiqueta}</span>
+            <h3>{s.titulo}</h3>
+            <p>{s.texto}</p>
+            <a class="btn" href={link(s.mensaje)} target="_blank" rel="noopener" aria-label={`${s.boton}: ${s.titulo}`}>{s.boton}</a>
+          </article>
+        ))}
+      </div>
+      {servicios.nota && <p class="nota">{servicios.nota}</p>}
+    </div>
+  </section>
+
+  <section class="sobre hoja" id="sobre-mi">
+    <div class="wrap">
+      <div class="flor">
+        {sobre_mi.foto
+          ? <img class="foto" src={sobre_mi.foto} alt={sitio.nombre_completo}>
+          : <div class="ph"><img src="/img/logo.png" alt="">Segunda foto de Jacqui</div>}
+      </div>
+      <div>
+        <p class="eyebrow">{sobre_mi.etiqueta}</p>
+        <h2>{sobre_mi.titulo}</h2>
+        {parrafos.map((p) => <p>{p}</p>)}
+        <ul class="formacion">
+          {sobre_mi.formacion.map((f) => <li>{f}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="frase hoja">
+    <div class="wrap">
+      <img class="logo-deco" src="/img/logo.png" alt="" width="130" height="130">
+      <blockquote>“{frase.texto}”</blockquote>
+      <p>{frase.pie}</p>
+    </div>
+  </section>
+
+  <section class="prensa hoja" id="prensa">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">{prensa.etiqueta}</p>
+        <h2>{prensa.titulo}</h2>
+        <p class="lead">{prensa.bajada}</p>
+      </div>
+      <ul class="filas">
+        {prensa.items.map((p) => (
+          <li>
+            <a class="fila" href={p.url} target="_blank" rel="noopener">
+              <span class="medio">{p.medio}</span><h3>{p.titulo}</h3><span class="ver">{p.enlace_texto}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="novedades hoja">
+    <div class="wrap">
+      <div class="caja">
+        <div>
+          <p class="eyebrow">{novedades.etiqueta}</p>
+          <h2>{novedades.titulo}</h2>
+          <p class="lead" style="margin-top:14px">{novedades.bajada}</p>
+        </div>
+        {novedades.endpoint ? (
+          <form action={novedades.endpoint} method="post">
+            <label class="campo">Tu nombre<input type="text" name="nombre" autocomplete="given-name" required></label>
+            <label class="campo">Tu email<input type="email" name="email" autocomplete="email" required></label>
+            <label class="consent"><input type="checkbox" name="consentimiento" required> <span>{novedades.consentimiento}</span></label>
+            <button class="btn" type="submit">{novedades.boton}</button>
+          </form>
+        ) : (
+          <div class="alta-mail">
+            <a class="btn" href={mailNovedades}>{novedades.boton}</a>
+            <p><a href="/privacidad">Política de privacidad</a></p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="contacto hoja" id="contacto">
+    <div class="wrap">
+      <p class="eyebrow">{contacto.etiqueta}</p>
+      <h2>{contacto.titulo}</h2>
+      <p class="lead">{contacto.bajada}</p>
+      <div class="acciones">
+        <a class="btn" href={link(sitio.mensaje_whatsapp)} target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg> WhatsApp</a>
+        <a class="btn ghost" href={sitio.instagram} target="_blank" rel="noopener">Instagram @crianza.con.respeto</a>
+        <a class="btn ghost" href={`mailto:${sitio.email}`}>Email</a>
+      </div>
+      <p class="datos">{contacto.pie}</p>
+    </div>
+  </section>
+</main>
+</Base>

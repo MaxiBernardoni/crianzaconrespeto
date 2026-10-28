@@ -1,0 +1,13 @@
+{
+  "etiqueta": "En los medios",
+  "titulo": "Entrevistas y charlas",
+  "bajada": "Si querés conocer mi forma de trabajar antes de escribirme, acá me podés escuchar.",
+  "items": [
+    { "medio": "Bacap Noticias", "titulo": "“El humano es un ser emocional con capacidad de razonamiento”", "enlace_texto": "Leer nota →", "url": "https://bacap.com.ar/2022/10/12/crianza-respetuosa-el-humano-es-un-ser-emocional-con-capacidad-de-razonamiento/" },
+    { "medio": "PrimeriS.O.S", "titulo": "Programa para padres primerizos: caprichos, llanto y dejar los pañales", "enlace_texto": "Ver en Instagram →", "url": "https://www.instagram.com/primeris.o.s/" },
+    { "medio": "Noticiero IP", "titulo": "El modelo de crianza autoritario", "enlace_texto": "Ver entrevista →", "url": "https://www.youtube.com/watch?v=3M3mpQFst1w" },
+    { "medio": "Las Rubias · Canal KZO", "titulo": "Entrevista sobre crianza respetuosa", "enlace_texto": "Ver entrevista →", "url": "https://www.youtube.com/watch?v=s9ShMsP-cjc" },
+    { "medio": "Radio Brisa", "titulo": "Entrevista 2023", "enlace_texto": "Ver entrevista →", "url": "https://www.youtube.com/watch?v=AWfrZp2zdq8" },
+    { "medio": "Motivarte", "titulo": "Crianza respetuosa, charla completa", "enlace_texto": "Ver entrevista →", "url": "https://www.youtube.com/watch?v=9uYY2rBpFjo" }
+  ]
+}

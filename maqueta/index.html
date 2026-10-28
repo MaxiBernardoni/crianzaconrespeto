@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crianza con Respeto · Lic. Jacqui Szkliarski, psicóloga sistémica y perinatal</title>
+<meta name="description" content="Acompañamiento a familias desde el embarazo: grupos de crianza, atención online, charlas y orientación a padres. Crianza respetuosa, con límites y con ternura.">
+<link rel="icon" href="../referencias/logo-crianza-con-respeto.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crema: #FBF4EA;
+    --durazno: #F3DDD2;
+    --rosa: #E79FA0;
+    --rosa-suave: #F0C3C0;
+    --malva: #C9B0BA;
+    --salvia: #8CA7AC;
+    --salvia-oscuro: #3F5F65;
+    --burdeos: #4A2530;
+    --blanco: #FFFFFF;
+    --radio: 22px;
+    --sombra: 0 10px 30px -12px rgba(74, 37, 48, .25);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Poppins", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    font-family: var(--sans); font-weight: 400; font-size: 1.0625rem; line-height: 1.7;
+    color: var(--burdeos); background: var(--crema);
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--salvia-oscuro); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+  section { padding: clamp(56px, 8vw, 104px) 0; position: relative; overflow: hidden; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; letter-spacing: -.01em; }
+  h1 { font-size: clamp(2.2rem, 5.4vw, 3.7rem); }
+  h2 { font-size: clamp(1.8rem, 3.8vw, 2.6rem); }
+  h3 { font-size: 1.3rem; }
+  .eyebrow { font-size: .8rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--salvia-oscuro); margin-bottom: 14px; }
+  .lead { font-size: 1.15rem; font-weight: 300; max-width: 56ch; }
+  .center { text-align: center; }
+  .center .lead { margin-inline: auto; }
+
+  /* Botones */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px;
+    font: 500 1rem var(--sans); text-decoration: none; border: 2px solid transparent;
+    background: var(--rosa); color: var(--burdeos); transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); background: var(--rosa-suave); }
+  .btn.ghost { background: transparent; border-color: var(--burdeos); }
+  .btn.ghost:hover { background: rgba(74, 37, 48, .07); }
+  .btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; background: rgba(251, 244, 234, .92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(74, 37, 48, .08); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1.1; }
+  .marca img { width: 58px; height: 58px; object-fit: cover; object-position: center 55%; margin: -6px 0; }
+  .marca small { display: block; font: 300 .7rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--salvia-oscuro); }
+  nav ul { list-style: none; padding: 0; display: flex; gap: 26px; align-items: center; }
+  nav a { text-decoration: none; font-size: .95rem; font-weight: 500; }
+  nav a:not(.btn):hover { color: var(--salvia-oscuro); text-decoration: underline; text-underline-offset: 6px; }
+  nav .btn { padding: 10px 20px; font-size: .92rem; }
+  details.menu { display: none; }
+  @media (max-width: 860px) {
+    nav ul { display: none; }
+    details.menu { display: block; position: relative; }
+    details.menu summary { list-style: none; cursor: pointer; padding: 10px 18px; border-radius: 999px; border: 2px solid var(--burdeos); font-weight: 500; font-size: .92rem; }
+    details.menu summary::-webkit-details-marker { display: none; }
+    details.menu ul { display: flex; flex-direction: column; align-items: stretch; gap: 4px; position: absolute; right: 0; top: 54px; width: 250px; background: var(--blanco); border-radius: var(--radio); padding: 14px; box-shadow: var(--sombra); }
+    details.menu li a { display: block; padding: 10px 12px; border-radius: 12px; text-decoration: none; }
+    details.menu li a:hover { background: var(--durazno); }
+  }
+
+  /* Hero */
+  .hero { background: linear-gradient(180deg, var(--crema) 0%, var(--durazno) 100%); padding-top: clamp(40px, 6vw, 80px); }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .hero h1 em { font-style: italic; color: var(--salvia-oscuro); }
+  .hero .lead { margin: 22px 0 32px; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 14px; }
+  .confianza { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; font-size: .9rem; color: var(--salvia-oscuro); font-weight: 500; }
+  .confianza span::before { content: "♡ "; color: var(--rosa); }
+  .retrato { position: relative; max-width: 440px; margin-inline: auto; width: 100%; }
+  .flor { aspect-ratio: 1; clip-path: url(#flor); background: linear-gradient(145deg, var(--rosa-suave), var(--malva)); display: grid; place-items: center; }
+  .flor .foto { width: 100%; height: 100%; object-fit: cover; }
+  .ph { text-align: center; padding: 20px; font-size: .85rem; font-weight: 500; color: var(--burdeos); opacity: .8; }
+  .ph img { width: 70%; margin: 0 auto 6px; }
+  .sello { position: absolute; right: -6px; bottom: 4%; background: var(--blanco); border-radius: 999px; padding: 10px 18px; box-shadow: var(--sombra); font-size: .85rem; font-weight: 500; display: flex; gap: 8px; align-items: center; }
+  .sello::before { content: "💞"; }
+  .rama { position: absolute; width: 110px; color: var(--salvia); opacity: .85; pointer-events: none; }
+  .rama.a { left: -34px; top: 6%; }
+  .rama.b { right: 3%; top: -26px; transform: rotate(70deg) scaleX(-1); width: 90px; }
+  @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .retrato { max-width: 320px; order: -1; } }
+
+  /* Para quién */
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 36px; }
+  .chip { background: var(--blanco); border-radius: 999px; padding: 12px 24px; font-weight: 500; box-shadow: var(--sombra); }
+  .chip:nth-child(4n+1) { background: var(--durazno); }
+  .chip:nth-child(4n+2) { background: #E3EBEC; }
+  .chip:nth-child(4n+3) { background: #EDE0E5; }
+
+  /* Lo que trabajamos */
+  .trabajamos { background: var(--durazno); }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+  .tarjeta { background: var(--crema); border-radius: var(--radio); padding: 28px; box-shadow: var(--sombra); }
+  .tarjeta .ico { width: 46px; height: 46px; border-radius: 50%; background: var(--rosa-suave); display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 16px; }
+  .tarjeta p { font-size: .98rem; margin-top: 8px; }
+  @media (max-width: 860px) { .grid3 { grid-template-columns: 1fr; } }
+  @media (min-width: 861px) and (max-width: 1020px) { .grid3 { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Servicios */
+  .servicios { background: var(--salvia); }
+  .servicios .eyebrow { color: var(--burdeos); }
+  .servicios .tarjeta { background: var(--crema); display: flex; flex-direction: column; }
+  .servicios .tarjeta .btn { margin-top: auto; align-self: flex-start; }
+  .servicios .tarjeta p { margin-bottom: 20px; }
+  .etiqueta { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; background: var(--malva); margin-bottom: 14px; align-self: flex-start; }
+  .nota { margin-top: 28px; font-size: .92rem; text-align: center; }
+
+  /* Sobre mí */
+  .sobre .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .sobre .flor { max-width: 380px; margin-inline: auto; }
+  .sobre p + p { margin-top: 14px; }
+  .formacion { margin-top: 22px; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .96rem; }
+  .formacion li::before { content: "🌱 "; }
+  @media (max-width: 860px) { .sobre .wrap { grid-template-columns: 1fr; } }
+
+  /* Frase */
+  .frase { background: var(--malva); text-align: center; }
+  .frase blockquote { font-family: var(--serif); font-size: clamp(1.9rem, 5vw, 3.3rem); line-height: 1.2; max-width: 20ch; margin-inline: auto; }
+  .frase p { margin-top: 18px; font-weight: 500; }
+
+  /* Prensa */
+  .prensa .grid3 { margin-top: 36px; }
+  .prensa a.tarjeta { text-decoration: none; background: var(--blanco); transition: transform .2s; }
+  .prensa a.tarjeta:hover { transform: translateY(-4px); }
+  .prensa .medio { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--salvia-oscuro); }
+  .prensa h3 { font-size: 1.1rem; margin-top: 6px; }
+  .prensa .ver { font-size: .9rem; font-weight: 500; margin-top: 14px; display: block; }
+
+  /* Novedades */
+  .novedades { background: var(--durazno); }
+  .novedades .caja { background: var(--crema); border-radius: 32px; padding: clamp(28px, 5vw, 56px); box-shadow: var(--sombra); display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  form { display: grid; gap: 14px; }
+  label.campo { display: grid; gap: 6px; font-weight: 500; font-size: .92rem; }
+  input[type=email], input[type=text] { font: inherit; padding: 14px 18px; border-radius: 14px; border: 2px solid var(--malva); background: var(--blanco); color: var(--burdeos); }
+  input:focus-visible { outline: 3px solid var(--salvia-oscuro); border-color: transparent; }
+  .consent { display: flex; gap: 10px; font-size: .85rem; line-height: 1.5; align-items: flex-start; }
+  .consent input { margin-top: 4px; accent-color: var(--salvia-oscuro); width: 18px; height: 18px; flex: none; }
+  form .btn { justify-self: start; cursor: pointer; }
+  @media (max-width: 860px) { .novedades .caja { grid-template-columns: 1fr; } }
+
+  /* Contacto */
+  .contacto { text-align: center; }
+  .contacto .acciones { justify-content: center; margin-top: 30px; }
+  .datos { margin-top: 26px; font-size: .96rem; }
+
+  /* Footer */
+  footer { background: var(--burdeos); color: var(--crema); padding: 48px 0 32px; font-size: .9rem; }
+  footer .wrap { display: grid; gap: 22px; }
+  footer .cols { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
+  footer h4 { font: 600 .8rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--rosa-suave); margin-bottom: 10px; }
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer ul { list-style: none; padding: 0; display: grid; gap: 6px; }
+  .aviso { border-top: 1px solid rgba(251, 244, 234, .2); padding-top: 18px; font-size: .82rem; opacity: .9; display: grid; gap: 8px; }
+  .pendiente { background: var(--rosa-suave); color: var(--burdeos); padding: 1px 8px; border-radius: 6px; font-weight: 500; }
+  @media (max-width: 860px) { footer .cols { grid-template-columns: 1fr; } }
+
+  /* WhatsApp flotante */
+  .wa { position: fixed; right: 18px; bottom: 18px; z-index: 30; display: flex; align-items: center; gap: 10px; background: #25D366; color: #0B3B1E; font-weight: 600; font-size: .92rem; text-decoration: none; padding: 14px 20px; border-radius: 999px; box-shadow: 0 10px 28px -8px rgba(0, 0, 0, .35); transition: transform .2s; }
+  .wa:hover { transform: translateY(-3px); }
+  .wa svg { width: 24px; height: 24px; fill: currentColor; }
+  @media (max-width: 520px) { .wa span { display: none; } .wa { padding: 15px; } }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<!-- Máscara "flor" de 4 círculos (la forma que ya usa en su tienda) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false">
+  <clipPath id="flor" clipPathUnits="objectBoundingBox">
+    <circle cx=".27" cy=".27" r=".27"/><circle cx=".73" cy=".27" r=".27"/>
+    <circle cx=".27" cy=".73" r=".27"/><circle cx=".73" cy=".73" r=".27"/>
+    <rect x=".25" y=".25" width=".5" height=".5"/>
+  </clipPath>
+  <symbol id="rama" viewBox="0 0 120 160">
+    <path d="M60 158 C58 110 62 60 60 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <g fill="currentColor">
+      <ellipse cx="42" cy="120" rx="20" ry="9" transform="rotate(-35 42 120)"/>
+      <ellipse cx="80" cy="96" rx="20" ry="9" transform="rotate(35 80 96)"/>
+      <ellipse cx="40" cy="72" rx="18" ry="8" transform="rotate(-35 40 72)"/>
+      <ellipse cx="78" cy="46" rx="17" ry="8" transform="rotate(35 78 46)"/>
+      <ellipse cx="50" cy="22" rx="12" ry="6" transform="rotate(-30 50 22)"/>
+    </g>
+  </symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.93 9.93 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.5.08-1.13.1-1.8-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.18-4.94-4.38-.14-.2-1.18-1.57-1.18-3s.75-2.12 1.02-2.4c.26-.3.57-.37.77-.37h.55c.18 0 .42-.07.65.5.25.58.84 2 .9 2.15.08.15.12.32.02.5-.1.2-.15.32-.3.5l-.45.5c-.15.15-.3.3-.13.6.17.3.77 1.26 1.65 2.04 1.13 1 2.1 1.32 2.4 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="marca" href="#inicio" aria-label="Crianza con Respeto, inicio">
+      <img src="../referencias/logo-crianza-con-respeto.png" alt="">
+      <span>Crianza con Respeto<small>Lic. Jacqui Szkliarski</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#trabajamos">Qué trabajamos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#prensa">Entrevistas</a></li>
+        <li><a class="btn" href="#contacto">Escribime</a></li>
+      </ul>
+      <details class="menu">
+        <summary>Menú</summary>
+        <ul>
+          <li><a href="#trabajamos">Qué trabajamos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#prensa">Entrevistas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Psicóloga sistémica y perinatal</p>
+        <h1>Ayudo a familias a construir <em>vínculos sanos y respetuosos</em></h1>
+        <p class="lead">Desde el embarazo en adelante: acompañamiento sin culpa, con límites y con ternura. Porque criar es más liviano cuando no se hace sola.</p>
+        <div class="acciones">
+          <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quisiera%20consultarte%20por%20..." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#wa"/></svg> Escribime por WhatsApp
+          </a>
+          <a class="btn ghost" href="#servicios">Ver cómo acompaño</a>
+        </div>
+        <div class="confianza">
+          <span>Atención online</span><span>Familias de todo el mundo</span><span>Grupos de crianza</span>
+        </div>
+      </div>
+      <div class="retrato">
+        <svg class="rama a"><use href="#rama"/></svg>
+        <svg class="rama b"><use href="#rama"/></svg>
+        <div class="flor">
+          <!-- Reemplazar por <img class="foto" src="foto-jacqui.jpg" alt="Jacqui Szkliarski"> -->
+          <div class="ph"><img src="../referencias/logo-crianza-con-respeto.png" alt="">Acá va la foto de Jacqui</div>
+        </div>
+        <div class="sello">Crianza respetuosa, con límites</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section>
+    <div class="wrap center">
+      <p class="eyebrow">Para quién es</p>
+      <h2>Para quien está criando y quiere hacerlo con más calma</h2>
+      <p class="lead">Si alguna vez pensaste “estoy fallando”, acá no vas a encontrar un juicio. Vas a encontrar herramientas y una red.</p>
+      <div class="chips">
+        <span class="chip">Embarazadas y puérperas</span>
+        <span class="chip">Mamás de bebés de 0 a 1 año</span>
+        <span class="chip">Mamás de niños de 2 a 6</span>
+        <span class="chip">Papás que quieren estar presentes</span>
+        <span class="chip">Parejas</span>
+        <span class="chip">Profesionales de la salud</span>
+        <span class="chip">Escuelas y empresas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ TRABAJAMOS -->
+  <section class="trabajamos" id="trabajamos">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Qué trabajamos juntas y juntos</p>
+        <h2>Lo que se vive todos los días, dicho sin vueltas</h2>
+      </div>
+      <div class="grid3">
+        <article class="tarjeta"><div class="ico">🤍</div><h3>Culpa y agotamiento</h3><p>No es falta de amor, es cansancio. Aprendemos a registrarlo y a pedir y armar red de apoyo.</p></article>
+        <article class="tarjeta"><div class="ico">💙</div><h3>Gritos y emociones</h3><p>Dijiste que no ibas a gritar y gritaste. Se puede reparar, y también se puede prevenir.</p></article>
+        <article class="tarjeta"><div class="ico">🌿</div><h3>Límites con ternura</h3><p>La firmeza y el cariño no se contradicen. Crianza respetuosa no es dejar hacer todo.</p></article>
+        <article class="tarjeta"><div class="ico">🌙</div><h3>Sueño, lactancia y pañal</h3><p>Colecho, destete, dejar el pañal o el chupete: cada etapa con información y sin presiones.</p></article>
+        <article class="tarjeta"><div class="ico">👨‍👩‍👧</div><h3>Ser papá y ser pareja</h3><p>El rol del papá, la coparentalidad y cómo no quedar afuera sin que nadie se dé cuenta.</p></article>
+        <article class="tarjeta"><div class="ico">🌱</div><h3>Tu propia historia</h3><p>Criamos desde lo que vivimos. Mirarlo con cuidado cambia cómo acompañamos a nuestros hijos.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Cómo acompaño</p>
+        <h2>Elegí el formato que mejor te quede</h2>
+        <p class="lead">Todo es online, así que podés participar desde cualquier lugar.</p>
+      </div>
+      <div class="grid3">
+        <article class="tarjeta">
+          <span class="etiqueta">Grupal</span>
+          <h3>Grupos de crianza</h3>
+          <p>Encuentros mensuales con otras mamás y un grupo de WhatsApp para acompañarse entre encuentros. Para embarazo y puerperio, bebés de 0 a 1 y niños de 2 a 6.</p>
+          <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quiero%20info%20de%20los%20grupos%20de%20crianza" target="_blank" rel="noopener">Quiero info</a>
+        </article>
+        <article class="tarjeta">
+          <span class="etiqueta">Individual</span>
+          <h3>Atención y orientación a padres</h3>
+          <p>Espacio personal, para vos o para tu familia, con mirada sistémica. Online, para Argentina y el mundo.</p>
+          <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quiero%20consultar%20por%20atenci%C3%B3n%20individual" target="_blank" rel="noopener">Pedir una entrevista</a>
+        </article>
+        <article class="tarjeta">
+          <span class="etiqueta">A tu ritmo</span>
+          <h3>Charlas pregrabadas</h3>
+          <p>“Crianza con Respeto – Fundamentos” para verla cuando puedas y las veces que quieras. Pronto, también la charla de preparto.</p>
+          <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quiero%20info%20de%20las%20charlas%20pregrabadas" target="_blank" rel="noopener">Quiero info</a>
+        </article>
+        <article class="tarjeta">
+          <span class="etiqueta">Profesionales</span>
+          <h3>Grupo de trabajo y supervisión</h3>
+          <p>Encuentros mensuales para colegas que acompañan familias, con espacio para pensar casos y herramientas.</p>
+          <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quiero%20info%20del%20grupo%20de%20supervisi%C3%B3n" target="_blank" rel="noopener">Quiero info</a>
+        </article>
+        <article class="tarjeta">
+          <span class="etiqueta">Instituciones</span>
+          <h3>Charlas para escuelas y empresas</h3>
+          <p>Charlas sobre crianza respetuosa y embarazo para equipos de salud, educadores y familias.</p>
+          <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quiero%20consultar%20por%20una%20charla%20institucional" target="_blank" rel="noopener">Consultar</a>
+        </article>
+      </div>
+      <!-- Sin precios en la web: pendiente de consultar el código de ética del Colegio de Psicólogos (ver investigacion-web.md, sección 9) -->
+      <p class="nota">Los valores se informan por WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="sobre" id="sobre-mi">
+    <div class="wrap">
+      <div class="flor">
+        <!-- Reemplazar por <img class="foto" src="foto-jacqui-2.jpg" alt="Jacqui Szkliarski"> -->
+        <div class="ph"><img src="../referencias/logo-crianza-con-respeto.png" alt="">Segunda foto de Jacqui</div>
+      </div>
+      <div>
+        <p class="eyebrow">Sobre mí</p>
+        <h2>Hola, soy Jacqui</h2>
+        <p>Soy psicóloga sistémica y perinatal, y acompaño a familias desde el embarazo y durante la crianza. Llegué a la crianza respetuosa siendo mamá: ahí entendí cuánto cambia todo cuando primero cuidamos a los adultos.</p>
+        <p>Creo en una figura de autoridad que sea respetuosa y respetable: ni autoritaria ni permisiva. Y en que acompañarnos entre madres y padres da recursos y contención.</p>
+        <ul class="formacion">
+          <li>Licenciada en Psicología, formación sistémica y perinatal</li>
+          <li>Diplomada en Parentalidad y Apego, Fundación América por la Infancia</li>
+          <li>Docente invitada en diplomaturas de la Universidad de Belgrano y BA Educación Ejecutiva</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRASE -->
+  <section class="frase">
+    <div class="wrap">
+      <blockquote>“No estás fallando. Te está faltando red.”</blockquote>
+      <p>Acá armamos esa red.</p>
+    </div>
+  </section>
+
+  <!-- PRENSA -->
+  <section class="prensa" id="prensa">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">En los medios</p>
+        <h2>Entrevistas y charlas</h2>
+        <p class="lead">Si querés conocer mi forma de trabajar antes de escribirme, acá me podés escuchar.</p>
+      </div>
+      <div class="grid3">
+        <a class="tarjeta" href="https://bacap.com.ar/2022/10/12/crianza-respetuosa-el-humano-es-un-ser-emocional-con-capacidad-de-razonamiento/" target="_blank" rel="noopener">
+          <span class="medio">Bacap Noticias</span><h3>“El humano es un ser emocional con capacidad de razonamiento”</h3><span class="ver">Leer nota →</span>
+        </a>
+        <a class="tarjeta" href="https://www.instagram.com/primeris.o.s/" target="_blank" rel="noopener">
+          <span class="medio">PrimeriS.O.S</span><h3>Programa para padres primerizos: caprichos, llanto y dejar los pañales</h3><span class="ver">Ver en Instagram →</span>
+        </a>
+        <a class="tarjeta" href="https://www.youtube.com/watch?v=3M3mpQFst1w" target="_blank" rel="noopener">
+          <span class="medio">Noticiero IP</span><h3>El modelo de crianza autoritario</h3><span class="ver">Ver entrevista →</span>
+        </a>
+        <a class="tarjeta" href="https://www.youtube.com/watch?v=s9ShMsP-cjc" target="_blank" rel="noopener">
+          <span class="medio">Las Rubias · Canal KZO</span><h3>Entrevista sobre crianza respetuosa</h3><span class="ver">Ver entrevista →</span>
+        </a>
+        <a class="tarjeta" href="https://www.youtube.com/watch?v=AWfrZp2zdq8" target="_blank" rel="noopener">
+          <span class="medio">Radio Brisa</span><h3>Entrevista 2023</h3><span class="ver">Ver entrevista →</span>
+        </a>
+        <a class="tarjeta" href="https://www.youtube.com/watch?v=9uYY2rBpFjo" target="_blank" rel="noopener">
+          <span class="medio">Motivarte</span><h3>Crianza respetuosa, charla completa</h3><span class="ver">Ver entrevista →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES -->
+  <section class="novedades">
+    <div class="wrap">
+      <div class="caja">
+        <div>
+          <p class="eyebrow">Para llevarte</p>
+          <h2>Recibí ideas para la crianza de todos los días</h2>
+          <p class="lead" style="margin-top:14px">Un mail cada tanto con una idea, una herramienta y fechas de los próximos encuentros. Sin spam.</p>
+        </div>
+        <!-- Maqueta: sin envío real. Pendiente definir servicio de newsletter y política de privacidad (Ley 25.326). -->
+        <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Gracias, ¡nos vemos pronto!';">
+          <label class="campo">Tu nombre<input type="text" name="nombre" autocomplete="given-name" required></label>
+          <label class="campo">Tu email<input type="email" name="email" autocomplete="email" required></label>
+          <label class="consent"><input type="checkbox" required> Acepto recibir emails de Crianza con Respeto y la política de privacidad. Puedo darme de baja cuando quiera.</label>
+          <button class="btn" type="submit">Quiero recibirlos</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="wrap">
+      <p class="eyebrow">Contacto</p>
+      <h2>Contame cómo estás y vemos cómo acompañarte</h2>
+      <p class="lead">Escribime y te respondo a la brevedad. Sin compromiso.</p>
+      <div class="acciones">
+        <a class="btn" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quisiera%20consultarte%20por%20..." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg> WhatsApp</a>
+        <a class="btn ghost" href="https://www.instagram.com/crianza.con.respeto/" target="_blank" rel="noopener">Instagram @crianza.con.respeto</a>
+        <a class="btn ghost" href="mailto:crianzaconrespetoarg@gmail.com">Email</a>
+      </div>
+      <p class="datos">Atención online · De Argentina al mundo 🌎</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Crianza con Respeto</h4>
+        <p>Lic. Jacqueline (Jacqui) Szkliarski<br>Psicóloga sistémica y perinatal<br>Matrícula: <span class="pendiente">pendiente de completar</span></p>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <ul><li><a href="#trabajamos">Qué trabajamos</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#prensa">Entrevistas</a></li></ul>
+      </div>
+      <div>
+        <h4>Seguime</h4>
+        <ul><li><a href="https://www.instagram.com/crianza.con.respeto/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.threads.com/@crianza.con.respeto" target="_blank" rel="noopener">Threads</a></li><li><a href="https://www.youtube.com/@Crianzaconrespeto" target="_blank" rel="noopener">YouTube</a></li><li><a href="#">Política de privacidad</a></li></ul>
+      </div>
+    </div>
+    <div class="aviso">
+      <p>Este sitio es informativo y no reemplaza una consulta profesional. Las consultas por este medio no constituyen un tratamiento.</p>
+      <!-- Verificar teléfonos vigentes y su jurisdicción antes de publicar -->
+      <p>Si estás atravesando una situación de crisis o de riesgo, comunicate con el 107 (SAME) o con el 135 (asistencia en crisis, CABA y Gran Buenos Aires), o acudí a la guardia más cercana.</p>
+      <p>© 2026 Crianza con Respeto</p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5491151105497?text=Hola%20Jacqui%2C%20quisiera%20consultarte%20por%20..." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg aria-hidden="true"><use href="#wa"/></svg><span>Escribime</span>
+</a>
+
+</body>
+</html>

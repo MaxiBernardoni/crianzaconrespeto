@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "etiqueta": "Psicóloga sistémica y perinatal",
+    "titulo": "Ayudo a familias a construir",
+    "titulo_destacado": "vínculos sanos y respetuosos",
+    "bajada": "Desde el embarazo en adelante: acompañamiento sin culpa, con límites y con ternura. Porque criar es más liviano cuando no se hace sola.",
+    "boton_principal": "Escribime por WhatsApp",
+    "boton_secundario": "Ver cómo acompaño",
+    "puntos": ["Atención online", "Familias de todo el mundo", "Grupos de crianza"],
+    "sello": "Crianza respetuosa, con límites",
+    "foto": ""
+  },
+  "para_quien": {
+    "etiqueta": "Para quién es",
+    "titulo": "Para quien está criando y quiere hacerlo con más calma",
+    "bajada": "Si alguna vez pensaste “estoy fallando”, acá no vas a encontrar un juicio. Vas a encontrar herramientas y una red.",
+    "chips": [
+      "Embarazadas y puérperas",
+      "Mamás de bebés de 0 a 1 año",
+      "Mamás de niños de 2 a 6",
+      "Papás que quieren estar presentes",
+      "Parejas",
+      "Profesionales de la salud",
+      "Escuelas y empresas"
+    ]
+  },
+  "sobre_mi": {
+    "etiqueta": "Sobre mí",
+    "titulo": "Hola, soy Jacqui",
+    "texto": "Soy psicóloga sistémica y perinatal, y acompaño a familias desde el embarazo y durante la crianza. Llegué a la crianza respetuosa siendo mamá: ahí entendí cuánto cambia todo cuando primero cuidamos a los adultos.\n\nCreo en una figura de autoridad que sea respetuosa y respetable: ni autoritaria ni permisiva. Y en que acompañarnos entre madres y padres da recursos y contención.",
+    "formacion": [
+      "Licenciada en Psicología, formación sistémica y perinatal",
+      "Diplomada en Parentalidad y Apego, Fundación América por la Infancia",
+      "Docente invitada en diplomaturas de la Universidad de Belgrano y BA Educación Ejecutiva"
+    ],
+    "foto": ""
+  },
+  "frase": {
+    "texto": "No estás fallando. Te está faltando red.",
+    "pie": "Acá armamos esa red."
+  },
+  "novedades": {
+    "etiqueta": "Para llevarte",
+    "titulo": "Recibí ideas para la crianza de todos los días",
+    "bajada": "Un mail cada tanto con una idea, una herramienta y fechas de los próximos encuentros. Sin spam.",
+    "consentimiento": "Acepto recibir emails de Crianza con Respeto y la política de privacidad. Puedo darme de baja cuando quiera.",
+    "boton": "Quiero recibirlos",
+    "endpoint": ""
+  },
+  "contacto": {
+    "etiqueta": "Contacto",
+    "titulo": "Contame cómo estás y vemos cómo acompañarte",
+    "bajada": "Escribime y te respondo a la brevedad. Sin compromiso.",
+    "pie": "Atención online · De Argentina al mundo 🌎"
+  }
+}

@@ -1,0 +1,149 @@
+---
+import "../styles/global.css";
+import sitio from "../content/sitio.json";
+import { wa } from "../lib/wa";
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+  ruta?: string;
+}
+const {
+  titulo = `${sitio.nombre} · ${sitio.firma}, ${sitio.titulo_profesional.toLowerCase()}`,
+  descripcion = sitio.descripcion_seo,
+  ruta = "/",
+} = Astro.props;
+
+// Con `sitio.url` vacío no hay canonical ni URLs absolutas: las vistas previas al compartir
+// (WhatsApp, Instagram) necesitan la dirección completa, así que hay que cargarla al tener dominio.
+const base = sitio.url.replace(/\/+$/, "");
+const canonical = base ? base + ruta : null;
+const imagen = `${base}/img/og.png`;
+const linkWa = wa(sitio.whatsapp, sitio.mensaje_whatsapp);
+---
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{titulo}</title>
+  <meta name="description" content={descripcion}>
+  <meta name="theme-color" content="#FBF4EA">
+  {canonical && <link rel="canonical" href={canonical}>}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content={sitio.nombre}>
+  <meta property="og:title" content={titulo}>
+  <meta property="og:description" content={descripcion}>
+  {canonical && <meta property="og:url" content={canonical}>}
+  <meta property="og:image" content={imagen}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={`${sitio.nombre}, ${sitio.firma}`}>
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,1;1,9..144,300..600,100,1&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="saltar" href="#inicio">Saltar al contenido</a>
+
+<!-- Máscara "flor" de 4 círculos (la forma que ya usa en su tienda) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false">
+  <clipPath id="flor" clipPathUnits="objectBoundingBox">
+    <circle cx=".27" cy=".27" r=".27"/><circle cx=".73" cy=".27" r=".27"/>
+    <circle cx=".27" cy=".73" r=".27"/><circle cx=".73" cy=".73" r=".27"/>
+    <rect x=".25" y=".25" width=".5" height=".5"/>
+  </clipPath>
+  <symbol id="rama" viewBox="0 0 120 160">
+    <path d="M60 158 C58 110 62 60 60 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <g fill="currentColor">
+      <ellipse cx="42" cy="120" rx="20" ry="9" transform="rotate(-35 42 120)"/>
+      <ellipse cx="80" cy="96" rx="20" ry="9" transform="rotate(35 80 96)"/>
+      <ellipse cx="40" cy="72" rx="18" ry="8" transform="rotate(-35 40 72)"/>
+      <ellipse cx="78" cy="46" rx="17" ry="8" transform="rotate(35 78 46)"/>
+      <ellipse cx="50" cy="22" rx="12" ry="6" transform="rotate(-30 50 22)"/>
+    </g>
+  </symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.93 9.93 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.5.08-1.13.1-1.8-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.18-4.94-4.38-.14-.2-1.18-1.57-1.18-3s.75-2.12 1.02-2.4c.26-.3.57-.37.77-.37h.55c.18 0 .42-.07.65.5.25.58.84 2 .9 2.15.08.15.12.32.02.5-.1.2-.15.32-.3.5l-.45.5c-.15.15-.3.3-.13.6.17.3.77 1.26 1.65 2.04 1.13 1 2.1 1.32 2.4 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="marca" href="/" aria-label={`${sitio.nombre}, inicio`}>
+      <img src="/img/logo.png" alt="" width="58" height="58">
+      <span>{sitio.nombre}<small>{sitio.firma}</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="/#trabajamos">Qué trabajamos</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#sobre-mi">Sobre mí</a></li>
+        <li><a href="/#prensa">Entrevistas</a></li>
+        <li><a class="btn" href={linkWa} target="_blank" rel="noopener">Escribime</a></li>
+      </ul>
+      <details class="menu">
+        <summary>Menú</summary>
+        <ul>
+          <li><a href="/#trabajamos">Qué trabajamos</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#sobre-mi">Sobre mí</a></li>
+          <li><a href="/#prensa">Entrevistas</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<slot />
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2 class="pie-titulo">{sitio.nombre}</h2>
+        <p>
+          {sitio.nombre_completo}<br>{sitio.titulo_profesional}
+          {sitio.matricula
+            ? <><br>Matrícula: {sitio.matricula}</>
+            : import.meta.env.DEV && <><br>Matrícula: <span class="pendiente">pendiente de completar</span></>}
+        </p>
+      </div>
+      <div>
+        <h2 class="pie-titulo">Secciones</h2>
+        <ul><li><a href="/#trabajamos">Qué trabajamos</a></li><li><a href="/#servicios">Servicios</a></li><li><a href="/#sobre-mi">Sobre mí</a></li><li><a href="/#prensa">Entrevistas</a></li></ul>
+      </div>
+      <div>
+        <h2 class="pie-titulo">Seguime</h2>
+        <ul>
+          <li><a href={sitio.instagram} target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href={sitio.threads} target="_blank" rel="noopener">Threads</a></li>
+          <li><a href={sitio.youtube} target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="/privacidad">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="aviso">
+      <p>{sitio.aviso_alcance}</p>
+      <!-- Verificar teléfonos vigentes y su jurisdicción antes de publicar -->
+      <p>{sitio.aviso_crisis}</p>
+      <p>© {new Date().getFullYear()} {sitio.nombre}</p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href={linkWa} target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg aria-hidden="true"><use href="#wa"/></svg><span>Escribime</span>
+</a>
+
+<script>
+  // Menú móvil: se cierra al elegir una sección (si no, queda tapando el contenido).
+  document.querySelectorAll<HTMLAnchorElement>("details.menu a").forEach((a) =>
+    a.addEventListener("click", () => a.closest("details")?.removeAttribute("open")),
+  );
+</script>
+
+</body>
+</html>
