@@ -1,0 +1,31 @@
+{
+  "titulo": "Un regalo para vos",
+  "pista": "Tocá el regalo para abrirlo",
+  "mensajes": [
+    "Feliz día de la madre",
+    "Te amo, mamá",
+    "Hace mucho que acompañás a otras familias con tanto cariño. Hice algo para vos."
+  ],
+  "firma": "De parte de Maxi",
+  "boton_siguiente": "Siguiente",
+  "boton_ayuda": "Ver para qué te sirve",
+  "ayuda": {
+    "titulo": "Para qué te sirve",
+    "bajada": "Algunas de las cosas que esta página hace por vos:",
+    "items": [
+      { "icono": "lupa", "titulo": "Que te encuentren", "texto": "Tu propia casa en internet, con tu nombre y un link para compartir en Instagram, WhatsApp o donde quieras." },
+      { "icono": "chat", "titulo": "Que te escriban fácil", "texto": "Un botón de WhatsApp siempre a mano, con el mensaje ya escrito para cada servicio." },
+      { "icono": "cuadro", "titulo": "Mostrar lo que hacés", "texto": "Tus grupos, la atención online, las charlas, la supervisión y tus entrevistas, todo en un solo lugar." },
+      { "icono": "lapiz", "titulo": "Cambiarla vos sola", "texto": "Un panel simple para editar textos, fotos y entrevistas sin saber nada de código." },
+      { "icono": "celular", "titulo": "Verse bien en el celular", "texto": "Se adapta a cualquier pantalla, también a la del teléfono." },
+      { "icono": "escudo", "titulo": "Cuidar tu trabajo", "texto": "Matrícula visible, aviso de alcance, política de privacidad y sin promesas: pensada para una profesional de la salud." }
+    ],
+    "cierre_titulo": "Y todo lo que vos quieras",
+    "cierre_texto": "Esta página es solo el comienzo. Se le puede agregar lo que necesites: turnos online, pagos de talleres, un blog, guías para descargar, tu newsletter… Lo que se te ocurra, lo armamos juntos."
+  },
+  "boton_final": "Ver mi regalo",
+  "presentacion_titulo": "Tu página web",
+  "presentacion_texto": "Es tuya. Tocá, recorré y mirá cómo se ve.",
+  "boton_entrar": "Entrar a la página",
+  "saltar": "Ir directo a la página"
+}

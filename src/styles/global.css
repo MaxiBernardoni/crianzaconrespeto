@@ -38,6 +38,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, svg { max-width: 100%; display: block; }
+
+/* Iconos propios (src/lib/iconos.ts): línea del color del texto, relleno suave y acento */
+.icono { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.icono .f { fill: var(--ic-fondo, var(--rosa-suave)); }
+.icono .a { fill: var(--ic-acento, var(--rosa)); }
+.icono .p { fill: currentColor; stroke: none; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 6px; }
 .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
@@ -98,8 +104,8 @@ details.menu { display: none; }
 .h1-2 { display: block; padding-left: clamp(0px, 5vw, 72px); }
 .hero .lead { margin: 24px 0 32px; }
 .acciones { display: flex; flex-wrap: wrap; gap: 14px; }
+.confianza .icono { color: var(--rosa); width: .95em; height: .95em; vertical-align: -.12em; --ic-fondo: var(--rosa-suave); }
 .confianza { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 28px; font-size: var(--t-s); font-weight: 500; color: var(--salvia-oscuro); list-style: none; padding: 0; }
-.confianza li::before { content: "♡ "; color: var(--rosa); }
 .retrato { position: relative; width: min(100%, 460px); aspect-ratio: 1; margin-inline: auto; }
 .petalo, .flor { clip-path: url(#flor); }
 .petalo { position: absolute; inset: 0; animation: abrir 1.1s cubic-bezier(.2, .8, .2, 1) both; }
@@ -111,8 +117,8 @@ details.menu { display: none; }
 .flor .foto { width: 100%; height: 100%; object-fit: cover; }
 .ph { text-align: center; padding: 20px; font-size: var(--t-s); font-weight: 500; }
 .ph img { width: 72%; margin: 0 auto 4px; }
+.sello .icono { font-size: 1.25rem; }
 .sello { position: absolute; right: -4px; bottom: 6%; background: var(--blanco); border-radius: 999px; padding: 10px 18px; font-size: var(--t-s); font-weight: 600; display: flex; gap: 8px; align-items: center; border: 1px solid rgba(74, 37, 48, .12); }
-.sello::before { content: "💞"; }
 .rama { position: absolute; width: 100px; color: var(--salvia); pointer-events: none; }
 .rama.a { left: -30px; top: 4%; }
 .rama.b { right: 2%; top: -22px; rotate: 70deg; scale: -1 1; width: 84px; }
@@ -136,7 +142,7 @@ details.menu { display: none; }
 .lista { list-style: none; padding: 0; }
 .lista li { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid rgba(74, 37, 48, .22); }
 .lista li:last-child { border-bottom: 1px solid rgba(74, 37, 48, .22); }
-.ico { width: 56px; height: 56px; clip-path: url(#flor); background: var(--rosa-suave); display: grid; place-items: center; font-size: 1.5rem; line-height: 1; }
+.ico { width: 56px; height: 56px; clip-path: url(#flor); background: var(--rosa-suave); display: grid; place-items: center; font-size: 2rem; line-height: 1; --ic-fondo: var(--crema); }
 .lista p { margin-top: 6px; max-width: 46ch; }
 @media (max-width: 860px) { .dos-col { grid-template-columns: 1fr; } .dos-col .cabeza { position: static; } }
 
@@ -168,8 +174,9 @@ details.menu { display: none; }
 .sobre h2 { margin-bottom: 18px; }
 .sobre p { max-width: 58ch; }
 .sobre p + p { margin-top: 14px; }
+.formacion li { display: flex; gap: 12px; align-items: flex-start; }
+.formacion .icono { font-size: 1.5rem; margin-top: 1px; }
 .formacion { margin-top: 24px; padding: 0; list-style: none; display: grid; gap: 10px; font-size: var(--t-m); }
-.formacion li::before { content: "🌱 "; }
 @media (max-width: 860px) { .sobre .wrap { grid-template-columns: 1fr; } }
 
 /* Frase: banda burdeos */
@@ -221,6 +228,7 @@ form .btn { justify-self: start; cursor: pointer; }
 .contacto .lead { margin: 16px auto 0; }
 .contacto .acciones { justify-content: center; margin-top: 32px; }
 .datos { margin-top: 26px; font-size: var(--t-m); }
+.datos .icono { font-size: 1.3rem; vertical-align: -.25em; margin-left: 4px; }
 
 /* Pie */
 footer { background: var(--burdeos); color: var(--crema); padding: calc(var(--solape) + 40px) 0 32px; font-size: var(--t-s); --ring: var(--crema); position: relative; margin-top: calc(var(--solape) * -1); border-radius: var(--solape) var(--solape) 0 0; }

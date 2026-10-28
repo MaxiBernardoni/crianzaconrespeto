@@ -2,11 +2,11 @@
   "etiqueta": "Qué trabajamos juntas y juntos",
   "titulo": "Lo que se vive todos los días, dicho sin vueltas",
   "items": [
-    { "icono": "🤍", "titulo": "Culpa y agotamiento", "texto": "No es falta de amor, es cansancio. Aprendemos a registrarlo y a pedir y armar red de apoyo." },
-    { "icono": "💙", "titulo": "Gritos y emociones", "texto": "Dijiste que no ibas a gritar y gritaste. Se puede reparar, y también se puede prevenir." },
-    { "icono": "🌿", "titulo": "Límites con ternura", "texto": "La firmeza y el cariño no se contradicen. Crianza respetuosa no es dejar hacer todo." },
-    { "icono": "🌙", "titulo": "Sueño, lactancia y pañal", "texto": "Colecho, destete, dejar el pañal o el chupete: cada etapa con información y sin presiones." },
-    { "icono": "👨‍👩‍👧", "titulo": "Ser papá y ser pareja", "texto": "El rol del papá, la coparentalidad y cómo no quedar afuera sin que nadie se dé cuenta." },
-    { "icono": "🌱", "titulo": "Tu propia historia", "texto": "Criamos desde lo que vivimos. Mirarlo con cuidado cambia cómo acompañamos a nuestros hijos." }
+    { "icono": "corazon", "titulo": "Culpa y agotamiento", "texto": "No es falta de amor, es cansancio. Aprendemos a registrarlo y a pedir y armar red de apoyo." },
+    { "icono": "burbuja", "titulo": "Gritos y emociones", "texto": "Dijiste que no ibas a gritar y gritaste. Se puede reparar, y también se puede prevenir." },
+    { "icono": "hoja", "titulo": "Límites con ternura", "texto": "La firmeza y el cariño no se contradicen. Crianza respetuosa no es dejar hacer todo." },
+    { "icono": "luna", "titulo": "Sueño, lactancia y pañal", "texto": "Colecho, destete, dejar el pañal o el chupete: cada etapa con información y sin presiones." },
+    { "icono": "familia", "titulo": "Ser papá y ser pareja", "texto": "El rol del papá, la coparentalidad y cómo no quedar afuera sin que nadie se dé cuenta." },
+    { "icono": "brote", "titulo": "Tu propia historia", "texto": "Criamos desde lo que vivimos. Mirarlo con cuidado cambia cómo acompañamos a nuestros hijos." }
   ]
 }

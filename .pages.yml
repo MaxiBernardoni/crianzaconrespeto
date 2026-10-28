@@ -101,7 +101,24 @@ content:
         type: object
         list: true
         fields:
-          - { name: icono, label: Emoji, type: string }
+          - name: icono
+            label: Ícono
+            type: select
+            options:
+              values:
+                - { value: corazon, label: Corazón }
+                - { value: burbuja, label: Burbuja con corazón }
+                - { value: hoja, label: Hoja }
+                - { value: luna, label: Luna }
+                - { value: familia, label: Familia }
+                - { value: brote, label: Brote }
+                - { value: lupa, label: Lupa }
+                - { value: chat, label: Charla }
+                - { value: cuadro, label: Cuadro }
+                - { value: lapiz, label: Lápiz }
+                - { value: celular, label: Celular }
+                - { value: escudo, label: Escudo con corazón }
+                - { value: globo, label: Globo terráqueo }
           - { name: titulo, label: Título, type: string }
           - { name: texto, label: Descripción, type: text }
 
@@ -161,3 +178,54 @@ content:
         fields:
           - { name: titulo, label: Título, type: string }
           - { name: texto, label: Texto (dejá una línea en blanco entre párrafos), type: text }
+
+  - name: regalo
+    label: Página del regalo (/regalo)
+    type: file
+    path: src/content/regalo.json
+    format: json
+    fields:
+      - { name: titulo, label: Título de la pestaña del navegador, type: string }
+      - { name: pista, label: Texto sobre el regalo cerrado, type: string }
+      - { name: mensajes, label: Mensajes que aparecen uno por uno, type: string, list: true }
+      - { name: firma, label: "Firma (último mensaje, en cursiva)", type: string }
+      - { name: boton_siguiente, label: Texto del botón entre mensajes, type: string }
+      - { name: boton_ayuda, label: Texto del botón del último mensaje (lleva a "para qué te sirve"), type: string }
+      - name: ayuda
+        label: Etapa "para qué te sirve"
+        type: object
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: bajada, label: Bajada, type: string }
+          - name: items
+            label: Cosas en las que te ayuda
+            type: object
+            list: true
+            fields:
+              - name: icono
+                label: Ícono
+                type: select
+                options:
+                  values:
+                    - { value: corazon, label: Corazón }
+                    - { value: burbuja, label: Burbuja con corazón }
+                    - { value: hoja, label: Hoja }
+                    - { value: luna, label: Luna }
+                    - { value: familia, label: Familia }
+                    - { value: brote, label: Brote }
+                    - { value: lupa, label: Lupa }
+                    - { value: chat, label: Charla }
+                    - { value: cuadro, label: Cuadro }
+                    - { value: lapiz, label: Lápiz }
+                    - { value: celular, label: Celular }
+                    - { value: escudo, label: Escudo con corazón }
+                    - { value: globo, label: Globo terráqueo }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Descripción, type: text }
+          - { name: cierre_titulo, label: Título del cierre (se le puede agregar lo que quiera), type: string }
+          - { name: cierre_texto, label: Texto del cierre, type: text }
+      - { name: boton_final, label: Texto del botón de la etapa "para qué te sirve" (lleva a la página), type: string }
+      - { name: presentacion_titulo, label: Título sobre la página presentada, type: string }
+      - { name: presentacion_texto, label: Texto sobre la página presentada, type: text }
+      - { name: boton_entrar, label: Texto del botón para entrar a la página, type: string }
+      - { name: saltar, label: Texto del link para ir directo a la página, type: string }

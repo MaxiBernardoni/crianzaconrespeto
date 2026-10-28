@@ -1,0 +1,15 @@
+---
+// Ícono propio por nombre (ver src/lib/iconos.ts). Si el nombre no existe (por ejemplo, si se escribe un emoji en el panel),
+// se muestra tal cual en vez de romper la página.
+import { ICONOS } from "../lib/iconos";
+
+interface Props {
+  nombre: string;
+  class?: string;
+}
+const { nombre, class: clase } = Astro.props;
+const dibujo = ICONOS[nombre];
+---
+{dibujo
+  ? <svg class:list={["icono", clase]} viewBox="0 0 48 48" aria-hidden="true" focusable="false" set:html={dibujo} />
+  : <span class={clase} aria-hidden="true">{nombre}</span>}
